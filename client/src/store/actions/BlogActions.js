@@ -30,7 +30,7 @@ export const LoadComments = (id) => {
   }
 }
 
-// export const CreateNewComment = (formValue) => ({
-//   type: CREATE_COMMENT,
-//   payload: formValue
-// })
+export const CreateNewComment = (formValue) => ({
+  type: CREATE_COMMENT,
+  payload: formValue
+})
