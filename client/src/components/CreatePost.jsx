@@ -57,7 +57,8 @@ const mapActionToProps = (dispatch) => {
 /*
 export const CreatePost = (formName, formValue) => ({
     const property ={
-        formName: formValue
+        name: formName
+        value: formValue
     }
     return async (dispatch) => {
     try {
@@ -75,6 +76,6 @@ export const CreatePost = (formName, formValue) => ({
 // Add to the post reducer switch case
 
 case ADD_TODO:
-    return { ...state, newPost: [...state.newPost, {action.payload[0]: action.payload.formName}]}
+    return { ...state, newPost: [...state.newPost, {action.payload.name: action.payload.value}]}
 */
 export default connect(mapStateToProps, mapActionToProps)(CreatePost);
