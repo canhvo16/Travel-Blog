@@ -1,7 +1,13 @@
 const { GET_POSTS } = require('../types')
 
 const initialState = {
-  posts: []
+  posts: [],
+  newPost: {
+    author: "",
+    description: "",
+    title: "",
+    likes: 0
+  }
 }
 
 const PostReducer = (state = initialState, action) => {
