@@ -9,10 +9,10 @@ export const GetPosts = async () => {
   }
 }
 
-export const GetComments = async () => {
+export const GetComments = async (id) => {
   try {
-    const res = await Client.get('/comment/:id')
-    return res.data
+    const res = await Client.get(`/comment/${id}`)
+    return res.data.comments
   } catch (error) {
     throw error
   }

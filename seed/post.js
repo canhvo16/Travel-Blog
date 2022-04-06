@@ -1,25 +1,25 @@
 const db = require('../db')
 const { Post } = require('../models')
 
-db.on('error', console.error.bind(console, "Mongodb connection error:"))
+db.on('error', console.error.bind(console, 'Mongodb connection error:'))
 
 const main = async () => {
-    
-    const post = [
-        {
-            description: "Paris was awsome",
-            title: "Paris Trip",
-            likes: 0
-        }   
-    ]
+  const post = [
+    {
+      description: 'Paris was awsome',
+      title: 'Paris Trip',
+      likes: 0
+    }
+  ]
 
-    await Post.create(post)
-    console.log('Created Post')
+  await Post.create(post)
+  console.log('Created Post')
 }
 
 const run = async () => {
-    await main()
-    db.close()
+  await Post.deleteMany()
+  await main()
+  db.close()
 }
 
 run()
