@@ -8,7 +8,8 @@ const main = async () => {
     const post = [
         {
             description: "Paris was awsome",
-            title: "Paris Trip"
+            title: "Paris Trip",
+            likes: 0
         }   
     ]
 
