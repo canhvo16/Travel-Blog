@@ -28,14 +28,17 @@ const Comment = (props) => {
 
   return (
     <div>
-     <div>
-      {props.commentState.comments?.map((comment) => (
-        <ul key={comment._id}>
-          <p>{comment.review}</p>
-        </ul>
-      ))}
-     </div>
-    </div>
+      <div>
+        <CommentForm newComment={props.commentState.newComment} handleChange={handleChange} handleSubmit={handleSubmit}/>
+      </div>
+      <div>
+        {props.commentState.comments?.map((comment) => (
+          <ul key={comment._id}>
+            <p>{comment.review}</p>
+          </ul>
+        ))}
+        </div>
+      </div>
   )
 }
 
