@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { LoadPosts } from '../store/actions/BlogActions'
 import { useEffect } from 'react'
+import Comment from './Comment'
 
 const mapStateToProps = ({ postState }) => {
   return { postState }
@@ -24,6 +25,9 @@ const Post = (props) => {
         <div>
           <h1>{post.title}</h1>
           <h4>{post.description}</h4>
+          <p>{post.likes} Likes</p>
+          <button>Like This Post Please</button>
+          <Comment id={post._id} />
         </div>
       ))}
     </div>
