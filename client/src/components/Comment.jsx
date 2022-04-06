@@ -2,19 +2,30 @@ import { connect } from "react-redux"
 import { useEffect } from "react"
 import { LoadComments } from "../store/actions/BlogActions"
 
-const mapStateToProps = ({ commentState }) => {
-  return { commentState }
+const mapStateToProps = ({ commentState, postState }) => {
+  return { commentState, postState }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: () => dispatch(LoadComments())
+    fetchComments: (id) => dispatch(LoadComments(id))
   }
 }
 
-const Comment = ({ props, id }) => {
+const Comment = (props) => {
+
+  useEffect(() => {
+    props.fetchComments(props.id)
+  }, [props.postState.posts])
+
   return (
-    <div>Comment</div>
+    <div>
+      {props.commentState.comments?.map((comment) => (
+        <ul key={comment._id}>
+          <p>{comment.review}</p>
+        </ul>
+      ))}
+    </div>
   )
 }
 

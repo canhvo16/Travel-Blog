@@ -15,10 +15,11 @@ export const LoadPosts = () => {
   }
 }
 
-export const LoadComments = () => {
+export const LoadComments = (id) => {
   return async (dispatch) => {
     try {
-      const comments = await GetComments()
+      const comments = await GetComments(id)
+      console.log(comments)
       dispatch({
         type: GET_COMMENTS,
         payload: comments
