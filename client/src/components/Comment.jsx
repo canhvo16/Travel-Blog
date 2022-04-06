@@ -2,17 +2,17 @@ import { connect } from "react-redux"
 import { useEffect } from "react"
 import { LoadComments, CreateNewComment } from "../store/actions/BlogActions"
 
-const mapStateToProps = ({ commentState }) => {
-  return { commentState }
+const mapStateToProps = ({ commentState, postState }) => {
+  return { commentState, postState }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: () => dispatch(LoadComments())
+    fetchComments: (id) => dispatch(LoadComments(id))
   }
 }
 
-const Comment = ({ props, id }) => {
+const Comment = (props) => {
 
   const handleChange = (e) => {
     props.createNewComment(e.target.value)
@@ -22,11 +22,19 @@ const Comment = ({ props, id }) => {
     props.createNewComment(props.commentState.newComment)
   }
 
+  useEffect(() => {
+    props.fetchComments(props.id)
+  }, [props.postState.posts])
+
   return (
     <div>
-      <h3>Comments</h3>
-      <CommentForm />
-
+     <div>
+      {props.commentState.comments?.map((comment) => (
+        <ul key={comment._id}>
+          <p>{comment.review}</p>
+        </ul>
+      ))}
+     </div>
     </div>
   )
 }
