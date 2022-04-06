@@ -11,7 +11,7 @@ export const GetPosts = async () => {
 
 export const GetComments = async () => {
   try {
-    const res = await Client.get('/comments/:id')
+    const res = await Client.get('/comment/:id')
     return res.data
   } catch (error) {
     throw error
