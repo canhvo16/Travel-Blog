@@ -1,5 +1,5 @@
 import { GetPosts, GetComments } from '../../services/BlogService'
-import { GET_POSTS, GET_COMMENTS } from '../types'
+import { GET_POSTS, GET_COMMENTS, CREATE_COMMENT } from '../types'
 
 export const LoadPosts = () => {
   return async (dispatch) => {
@@ -29,3 +29,8 @@ export const LoadComments = (id) => {
     }
   }
 }
+
+// export const CreateNewComment = (formValue) => ({
+//   type: CREATE_COMMENT,
+//   payload: formValue
+// })
