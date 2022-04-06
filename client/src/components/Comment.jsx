@@ -29,7 +29,7 @@ const Comment = (props) => {
   return (
     <div>
       <div>
-        <CommentForm newComment={props.commentState.newComment} handleChange={handleChange} handleSubmit={handleSubmit}/>
+        {/* <CommentForm newComment={props.commentState.newComment} handleChange={handleChange} handleSubmit={handleSubmit}/> */}
       </div>
       <div>
         {props.commentState.comments?.map((comment) => (

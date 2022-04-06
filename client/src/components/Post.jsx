@@ -28,7 +28,7 @@ const Post = (props) => {
           <p>{post.likes} Likes</p>
           <button>Like This Post Please</button>
           <Comment id={post._id} />
-          <CreateComment id={post._id} />
+          {/* <CreateComment id={post._id} /> */}
         </div>
       ))}
     </div>

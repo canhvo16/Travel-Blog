@@ -1,4 +1,4 @@
-import { post } from '../../../../models/Review'
+// import { post } from '../../../../models/Review'
 
 const { GET_COMMENTS, CREATE_COMMENT } = require('../types')
 
