@@ -1,6 +1,8 @@
+// import axios from 'axios'
 import { connect } from "react-redux"
 import { useEffect } from "react"
 import { LoadComments, CreateNewComment } from "../store/actions/BlogActions"
+import CommentForm from './CommentForm'
 
 const mapStateToProps = ({ commentState, postState }) => {
   return { commentState, postState }
@@ -8,18 +10,20 @@ const mapStateToProps = ({ commentState, postState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchComments: (id) => dispatch(LoadComments(id))
+    fetchComments: (id) => dispatch(LoadComments(id)),
+    createComments: (formValue) => dispatch(CreateNewComment())
   }
 }
 
 const Comment = (props) => {
 
   const handleChange = (e) => {
-    props.createNewComment(e.target.value)
+    props.createComments(e.target.value)
+    console.log(e.target.value)
   }
   
-  const handleSubmit = (e) => {
-    props.createNewComment(props.commentState.newComment)
+  const handleSubmit = async () => {
+    // await axios.post(`/`, props.commentState.newComment)
   }
 
   useEffect(() => {
@@ -29,7 +33,7 @@ const Comment = (props) => {
   return (
     <div>
       <div>
-        {/* <CommentForm newComment={props.commentState.newComment} handleChange={handleChange} handleSubmit={handleSubmit}/> */}
+        <CommentForm newComment={props.commentState.review} handleChange={handleChange} handleSubmit={handleSubmit}/>
       </div>
       <div>
         {props.commentState.comments?.map((comment) => (
