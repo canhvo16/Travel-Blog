@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Comment from './Comment'
 import CreatePost from './CreatePost'
 
+
 const mapStateToProps = ({ postState }) => {
   return { postState }
 }
