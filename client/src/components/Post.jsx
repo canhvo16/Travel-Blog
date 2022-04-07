@@ -29,6 +29,7 @@ const Post = (props) => {
       {props.postState.posts?.map((post) => (
         <div>
           <h1>{post.title}</h1>
+          {post.author && <h4>Author: {post.author}</h4>}
           <h4>{post.description}</h4>
           <p>{post.likes} Likes</p>
           <button>Like This Post Please</button>
