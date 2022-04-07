@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import axios from 'axios'
+import Client from '../services'
 import { NewPost } from '../store/actions/BlogActions'
+
 
 const CreatePost = (props) => {
 
@@ -14,10 +15,8 @@ const CreatePost = (props) => {
             description: props.postState.description,
             title: props.postState.title,
             likes: 0
-          }
-        //event.preventDefault()
-        console.log(newPost)
-        // await axios.post("URL", newPost)
+        }
+        await Client.post('/newPost', newPost)
     }
 
     return (

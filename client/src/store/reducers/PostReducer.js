@@ -14,7 +14,6 @@ const initialState = {
 }
 
 const PostReducer = (state = initialState, action) => {
-  // console.log(action.type)
   switch (action.type) {
     case GET_POSTS:
       return { ...state, posts: action.payload }
