@@ -29,11 +29,6 @@ export const LoadComments = (id) => {
   }
 }
 
-// export const CreateNewComment = (formValue) => ({
-//   type: CREATE_COMMENT,
-//   payload: formValue
-// })
-
 export const NewPost = (formName, formValue) => {
   let NEW_POST = ""
   if(formName === "author"){
@@ -55,3 +50,8 @@ export const NewPost = (formName, formValue) => {
     }
   }
 }
+
+export const CreateNewComment = (formValue) => ({
+  type: CREATE_COMMENT,
+  payload: formValue
+})
