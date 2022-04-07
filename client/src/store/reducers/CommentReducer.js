@@ -4,11 +4,9 @@ const { GET_COMMENTS, CREATE_COMMENT } = require('../types')
 
 const initialState = {
   comments: [],
-  newComment: {
-    post: '',
-    review: '',
-    likes: 0
-  }
+  // post: '',
+  review: '',
+  likes: 0
 }
 
 const CommentReducer = (state = initialState, action) => {
@@ -16,7 +14,7 @@ const CommentReducer = (state = initialState, action) => {
     case GET_COMMENTS:
       return { ...state, comments: action.payload }
     case CREATE_COMMENT:
-      return { ...state, newComment: action.payload }
+      return { ...state, review: action.payload }
     default:
       return { ...state }
   }

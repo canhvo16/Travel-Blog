@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { LoadPosts } from '../store/actions/BlogActions'
 import { useEffect } from 'react'
 import Comment from './Comment'
+import CreatePost from './CreatePost'
 
 const mapStateToProps = ({ postState }) => {
   return { postState }
@@ -33,6 +34,7 @@ const Post = (props) => {
           <button>Like This Post Please</button>
           <Comment id={post._id} />
           {/* <CreateComment id={post._id} /> */}
+          <CreatePost />
         </div>
       ))}
     </div>

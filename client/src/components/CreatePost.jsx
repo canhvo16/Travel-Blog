@@ -1,39 +1,56 @@
 import { connect } from 'react-redux'
 import axios from 'axios'
-// import { CreatePost } from '../store/actions/TodoActions';
+import { NewPost } from '../store/actions/BlogActions'
 
-function CreatePost(props) {
+const CreatePost = (props) => {
 
     const handleChange = (event) => {
-        props.createPost(event.target.name, event.target.value)
+        props.newPost(event.target.name, event.target.value)
     }
 
     const handlesubmit = async (event) => {
-        event.preventDefault()
-        // await axios.post("URL", props.postState.newPost)
+        const newPost = {
+            author: props.postState.author,
+            description: props.postState.description,
+            title: props.postState.title,
+            likes: 0
+          }
+        //event.preventDefault()
+        console.log(newPost)
+        // await axios.post("URL", newPost)
     }
 
     return (
         <div>
             <form>
                 <input 
+                    className='input-author'
                     type="text"
                     name="author"
-                    value={props.postState.newPost.author}
+                    value={props.postState.author}
+                    placeholder="Your Name"
                     onChange={(event) => handleChange(event)}
                     />
+                    <br/>
                 <input 
+                    className='input-title'
                     type="text"
                     name="title"
-                    value={props.postState.newPost.title}
+                    value={props.postState.title}
+                    placeholder="Title of post"
                     onChange={(event) => handleChange(event)}
                     />
+                    <br/>
+                    
                 <input 
+                    className='input-description'
                     type="text"
                     name="description"
-                    value={props.postState.newPost.description}
+                    value={props.postState.description}
+                    placeholder="Description"
                     onChange={(event) => handleChange(event)}
                     />
+                    <br/>
                 <button
                     type="submit"
                     onClick={handlesubmit}>Create Post</button>
@@ -42,40 +59,16 @@ function CreatePost(props) {
     );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({postState}) => {
     return {
-        postState: state.postState
+        postState
     }
 }
 
 const mapActionToProps = (dispatch) => {
     return {
-        createPost: (formName, formValue) => dispatch(CreatePost(formName, formValue)),
+        newPost: (formName, formValue) => dispatch(NewPost(formName, formValue)),
     }
 }
 
-/*
-export const CreatePost = (formName, formValue) => ({
-    const property ={
-        name: formName
-        value: formValue
-    }
-    return async (dispatch) => {
-    try {
-      const posts = await GetPosts()
-      dispatch({
-        type: NEW_POST,
-        payload: property
-      })
-    } catch (error) {
-      throw error
-    }
-  }
-})
-
-// Add to the post reducer switch case
-
-case ADD_TODO:
-    return { ...state, newPost: [...state.newPost, {action.payload.name: action.payload.value}]}
-*/
 export default connect(mapStateToProps, mapActionToProps)(CreatePost);
