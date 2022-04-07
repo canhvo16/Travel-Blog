@@ -20,12 +20,9 @@ const Post = (props) => {
     props.fetchPosts()
   }, [])
 
-  // const addLike = () => {
-  //   props
-  // }
-
   return (
     <div>
+      <CreatePost />
       {props.postState.posts?.map((post) => (
         <div>
           <h1>{post.title}</h1>
@@ -34,7 +31,6 @@ const Post = (props) => {
           <button>Like This Post Please</button>
           <Comment id={post._id} />
           {/* <CreateComment id={post._id} /> */}
-          <CreatePost />
         </div>
       ))}
     </div>
