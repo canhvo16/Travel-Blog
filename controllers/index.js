@@ -36,9 +36,19 @@ const createComment = async (req, res) => {
   }
 }
 
+const getAllComments = async (req, res) => {
+  try {
+    const comments = await Review.find()
+    return res.status(200).json({ comments })
+  } catch (error) {
+    return res.status(500).send(err.message)
+  }
+}
+
 module.exports = {
   getAllPost,
   getCommentByPostId,
   createPost,
-  createComment
+  createComment,
+  getAllComments
 }
