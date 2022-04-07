@@ -18,6 +18,7 @@
   padding: 20px
 }
 .post {
+  margin: auto;
   font-family: 'Roboto Slab', serif;
   background-color: #D5F5D6;
   width: 500px;
@@ -25,17 +26,26 @@
   padding: 20px;
   border-style: dotted;
   border-width: 3px;
-  border-color: white
+  border-color: white;
+  border-radius: 8px;
 }
 .postTitle {
   border-bottom-style: dashed;
   border-width: 3px;
-  border-color: white
+  border-color: white;
+  padding: 0px 0px 30px 0px
 }
 .likes {
   border-top-style: dashed;
   border-width: 3px;
   border-color: white
+}
+.likeButton {
+  box-shadow: 0 8px 16px 0 #60dbb2, 0 3px 5px 0 #60dbb2;
+  border: 0px;
+  background-color: #85e6bd;
+  border-radius: 8px;
+  height: 30px;
 }
 .comment {
   font-family: 'Roboto Slab', serif;
@@ -46,13 +56,23 @@
   border-style: dotted;
   border-width: 3px;
   border-color: white;
-  margin: 10px 0px 0px 0px
+  border-radius: 8px;
+  margin: 10px auto auto auto; 
 }
 .textArea {
-  width: 300px;
+  width: 400px;
   height: auto;
+  border-style: solid;
+  border-color: #ffde70;
 }
 .commentForm {
   display: flex;
-  
+}
+.submit {
+  box-shadow: 0 8px 16px 0 #ffde70, 0 3px 5px 0 #ffde70;
+  border: 0px;
+  background-color: #ffdca8;
+  border-radius: 8px;
+  margin: 15px;
+  height: 30px;
 }
