@@ -1,4 +1,5 @@
 import Home from './pages/Home'
+import Post from './components/Post'
 import './App.css'
 
 function App() {
