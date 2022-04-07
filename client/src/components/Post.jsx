@@ -1,8 +1,9 @@
-
 import { connect } from 'react-redux'
-import { LoadPosts } from '../store/actions/BlogActions'
+import { LoadPosts, LoadComments } from '../store/actions/BlogActions'
 import { useEffect } from 'react'
 import Comment from './Comment'
+import CreatePost from './CreatePost'
+
 
 const mapStateToProps = ({ postState }) => {
   return { postState }
@@ -10,6 +11,7 @@ const mapStateToProps = ({ postState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchComments: () => dispatch(LoadComments()),
     fetchPosts: () => dispatch(LoadPosts())
   }
 }
@@ -18,28 +20,18 @@ const Post = (props) => {
 
   useEffect(() => {
     props.fetchPosts()
+    props.fetchComments()
   }, [])
 
   return (
     <div>
-      <div className="post">
-        <h1 className="postTitle">Title</h1>
-        <h4>Description</h4>
-        <div className="likes">
-          <p>0 Likes</p>
-          <button>Like This Post Please</button>
-        </div>
-      </div>
+      <CreatePost />
       {props.postState.posts?.map((post) => (
         <div>
-          <div className="post">
-            <h1 className="postTitle">{post.title}</h1>
-            <h4>{post.description}</h4>
-            <div className="likes">
-              <p>{post.likes} Likes</p>
-              <button>Like This Post Please</button>
-            </div>
-          </div>
+          <h1>{post.title}</h1>
+          <h4>{post.description}</h4>
+          <p>{post.likes} Likes</p>
+          <button>Like This Post Please</button>
           <Comment id={post._id} />
           {/* <CreateComment id={post._id} /> */}
         </div>
