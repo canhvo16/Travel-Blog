@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { LoadPosts } from '../store/actions/BlogActions'
+import { LoadPosts, LoadComments } from '../store/actions/BlogActions'
 import { useEffect } from 'react'
 import Comment from './Comment'
 import CreatePost from './CreatePost'
@@ -10,6 +10,7 @@ const mapStateToProps = ({ postState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchComments: () => dispatch(LoadComments()),
     fetchPosts: () => dispatch(LoadPosts())
   }
 }
@@ -18,6 +19,7 @@ const Post = (props) => {
 
   useEffect(() => {
     props.fetchPosts()
+    props.fetchComments()
   }, [])
 
   return (

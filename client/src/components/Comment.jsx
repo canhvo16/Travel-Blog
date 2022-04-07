@@ -1,7 +1,6 @@
 // import axios from 'axios'
 import { connect } from "react-redux"
-import { useEffect } from "react"
-import { LoadComments, CreateNewComment } from "../store/actions/BlogActions"
+import { CreateNewComment } from "../store/actions/BlogActions"
 import CommentForm from './CommentForm'
 import Client from "../services"
 
@@ -11,7 +10,6 @@ const mapStateToProps = ({ commentState, postState }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchComments: (id) => dispatch(LoadComments(id)),
     createComments: (formValue) => dispatch(CreateNewComment(formValue))
   }
 }
@@ -31,14 +29,19 @@ const Comment = (props) => {
     await Client.post(`/newComment`, newComment)
   }
 
-  useEffect(() => {
-    props.fetchComments(props.id)
-  }, [])
+  const checkId = (comment) => {
+    if (comment.post === props.id) {
+      return comment
+    }
+  }
+
+  let commentArray = props.commentState.comments.filter(checkId)
+  console.log(commentArray)
 
   return (
     <div>
       <div>
-        {props.commentState.comments?.map((comment) => (
+        {commentArray?.map((comment) => (
           <ul key={comment._id}>
             <p>{comment.review}</p>
           </ul>

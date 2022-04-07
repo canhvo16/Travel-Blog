@@ -8,5 +8,6 @@ router.get('/getAllPost', controllers.getAllPost)
 router.get('/comment/:id', controllers.getCommentByPostId)
 router.post('/newPost', controllers.createPost)
 router.post('/newComment', controllers.createComment)
+router.get('/getAllComments', controllers.getAllComments)
 
 module.exports = router
