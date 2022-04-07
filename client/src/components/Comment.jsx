@@ -1,7 +1,7 @@
 // import axios from 'axios'
 import { connect } from "react-redux"
 import { useEffect } from "react"
-import { LoadComments, CreateNewComment } from "../store/actions/BlogActions"
+import { LoadComments, CreateNewComment, NewPost } from "../store/actions/BlogActions"
 import CommentForm from './CommentForm'
 
 const mapStateToProps = ({ commentState, postState }) => {
@@ -22,7 +22,12 @@ const Comment = (props) => {
     console.log(e.target.value)
   }
   
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    const newComment = {
+      review: props.commentState.review,
+      likes: 0
+    }
+    console.log(newComment)
     // await axios.post(`/`, props.commentState.newComment)
   }
 

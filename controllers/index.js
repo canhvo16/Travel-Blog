@@ -18,7 +18,17 @@ const getCommentByPostId = async (req, res) => {
   }
 }
 
+const createComment = async (req, res) => {
+  try {
+    const storeComment = await Review.create(req.body)
+    res.json(storeComment)
+  } catch (e) {
+    res.send('Oops! Something went wrong.')
+  }
+}
+
 module.exports = {
   getAllPost,
-  getCommentByPostId
+  getCommentByPostId,
+  createComment
 }
