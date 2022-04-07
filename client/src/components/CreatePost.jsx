@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 import Client from '../services'
 import { NewPost } from '../store/actions/BlogActions'
 
-
 const CreatePost = (props) => {
 
     const handleChange = (event) => {
