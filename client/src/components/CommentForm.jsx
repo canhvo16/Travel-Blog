@@ -2,13 +2,13 @@ const CommentForm = (props) => {
 
   return (
     <div>
-      <form>
-        <textarea rows="3"
+      <form className="commentForm">
+        <textarea className="textArea" rows="3"
         placeholder="Leave a Review Here"
         value={props.newComment}
         onChange={props.handleChange}>
         </textarea>
-        <button type="submit" onClick={props.handleSubmit}>Submit</button>
+        <button className="submit" type="submit" onClick={props.handleSubmit}>Submit</button>
       </form>
     </div>
   )

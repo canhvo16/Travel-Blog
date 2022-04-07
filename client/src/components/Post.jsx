@@ -27,15 +27,19 @@ const Post = (props) => {
     <div>
       <CreatePost />
       {props.postState.posts?.map((post) => (
-        <div>
-          <h1>{post.title}</h1>
-          {post.author && <h4>Author: {post.author}</h4>}
-          <h4>{post.description}</h4>
-          <p>{post.likes} Likes</p>
-          <button>Like This Post Please</button>
+        <div className="post">
+          <div className="postTitle">
+            <h1>{post.title}</h1>
+            {post.author && <h4>Author: {post.author}</h4>}
+            <h4>{post.description}</h4>
+          <div className="likes">
+            <p>{post.likes} Likes</p>
+            <button className="likeButton">Like This Post Please</button>
+          </div>
+          </div>
           <Comment id={post._id} />
           {/* <CreateComment id={post._id} /> */}
-        </div>
+          </div>
       ))}
     </div>
   )
