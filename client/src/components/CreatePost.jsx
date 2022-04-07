@@ -19,7 +19,7 @@ const CreatePost = (props) => {
     }
 
     return (
-        <div>
+        <div className="comment">
             <form>
                 <input 
                     className='input-author'
@@ -40,14 +40,14 @@ const CreatePost = (props) => {
                     />
                     <br/>
                     
-                <input 
-                    className='input-description'
+                <textarea className="textArea"
+                    // className='input-description'
                     type="text"
                     name="description"
+                    rows="7"
                     value={props.postState.description}
                     placeholder="Description"
-                    onChange={(event) => handleChange(event)}
-                    />
+                    onChange={(event) => handleChange(event)} />
                     <br/>
                 <button
                     type="submit"

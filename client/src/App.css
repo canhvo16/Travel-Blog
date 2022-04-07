@@ -59,7 +59,7 @@
   border-radius: 8px;
   margin: 10px auto auto auto; 
 }
-.textArea {
+.textArea, input {
   width: 400px;
   height: auto;
   border-style: solid;
@@ -68,7 +68,7 @@
 .commentForm {
   display: flex;
 }
-.submit {
+.submit, button {
   box-shadow: 0 8px 16px 0 #ffde70, 0 3px 5px 0 #ffde70;
   border: 0px;
   background-color: #ffdca8;
