@@ -6,7 +6,7 @@ db.on('error', console.error.bind(console, 'Mongodb connection error:'))
 const main = async () => {
   const post = [
     {
-      description: 'Paris was awsome',
+      description: 'Paris was awesome!!!',
       title: 'Paris Trip',
       likes: 0
     }
