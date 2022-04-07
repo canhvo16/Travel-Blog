@@ -19,6 +19,10 @@ const Post = (props) => {
     props.fetchPosts()
   }, [])
 
+  // const addLike = () => {
+  //   props
+  // }
+
   return (
     <div>
       {props.postState.posts?.map((post) => (
