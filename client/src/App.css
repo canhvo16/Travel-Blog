@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #F2D5F5;
   min-height: 100vh;
+  padding-top: 20px;
 }
 /* .App-header {
   min-height: 100vh;
@@ -12,11 +13,21 @@
   font-size: calc(10px + 2vmin);
   color: white;
 } */
-.header {
-  font-family: 'Rubik Microbe', cursive;
-  color: white;
-  padding: 20px
-}
+  .header {
+    font-family: 'Rubik Microbe', cursive;
+    font-size: 45px;
+    color: #6A1773;
+    -webkit-text-stroke-width: .000001px;
+    -webkit-text-stroke-color: white;
+    padding: 20px;
+    height: 125px;
+    background: url('https://i.imgur.com/OTxhOPP.png');
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 .post {
   margin: auto;
   font-family: 'Roboto Slab', serif;

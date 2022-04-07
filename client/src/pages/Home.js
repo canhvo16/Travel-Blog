@@ -2,7 +2,7 @@ import Post from '../components/Post'
 
 const Home = () => {
   return (
-    <div>
+    <div className="home">
       <header>
         <h1 className="header">Travel Blog</h1>
       </header>
